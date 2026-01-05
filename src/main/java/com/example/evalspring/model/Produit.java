@@ -23,6 +23,10 @@ public class Produit {
     @Column(name="prix", nullable = false)
     private Double prix;
 
+    @ManyToOne
+    @JoinColumn(name = "categorie_id")
+    private Categorie categorie;
+
     public Produit(String nom, Double prix) {
         this.nom = nom;
         this.prix = prix;

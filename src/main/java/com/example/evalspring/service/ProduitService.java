@@ -6,6 +6,7 @@ import com.example.evalspring.model.Produit;
 import com.example.evalspring.repository.ProduitRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,7 +26,10 @@ public class ProduitService {
     }
 
     public List<Produit> recupererTousLesProduits() {
-        return (List<Produit>) produitRepository.findAll();
+        List<Produit> produits = new ArrayList<>();
+        produitRepository.findAll().forEach(produits::add);
+        return produits;
+
     }
 
     public Produit recupererProduitParId(Integer id) {
